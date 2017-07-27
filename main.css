@@ -1,0 +1,108 @@
+body,input{
+    font: 1em "Open Sans", sans-serif;
+    color:#363639;
+    background-color:#004d99;
+}
+
+span{
+    margin-right: 10px;
+}
+
+/*Llist*/
+.list{
+    background-image: url('https://i.ytimg.com/vi/w7ma8mweDGw/maxresdefault.jpg');
+    background-size: contain;
+
+}
+.list{
+    background-color: #fff;
+    margin:20px auto;
+    width:100%;
+    max-width:600px;
+    padding:20px;
+    border-radius:5px;
+    box-shadow: 4px 4px 0 black;
+    box-sizing:border-box;
+}
+.list .header{
+    font-family: "Shadows Into Light Two", cursive;
+    margin:0 0 10px 0;
+}
+.header{
+    text-align: center;
+}
+
+/*Items*/
+.items {
+    margin:0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.items li,
+.item-add .input{
+    border:0;
+    border-bottom:1px dashed black ;
+    padding: 12px 0;
+}
+.input{
+    width:100%;
+    background-color: #fff;
+}
+.items .item.done{
+    text-decoration: line-through;
+}
+.done-button:hover{
+    opacity:1;
+}
+
+.done-button{
+    display: inline-block;
+    font-size:0.8em;
+    background-color: #d9dfe1;
+    color: #363639;
+    padding: 3px 6px;
+    border:0;
+    opacity: 0.4;
+
+}
+
+.delete-button{
+    display: none;
+    font-size:0.8em;
+    background-color: red;
+    color: black;
+    padding: 3px 6px;
+    border:0;
+    opacity: 0.4;
+}
+.delete-button:hover{
+    opacity:1;
+}
+
+.submit{
+    background-color: #fff;
+    padding:5px 10px;
+    border: 1px solid #ddd;
+    width:100%;
+    margin-top: 10px;
+    box-shadow: 3px 3px 0 #ddd;
+}
+
+.edit{
+    display: inline-block;
+    font-size:0.8em;
+    background-color: blue;
+    color: black;
+    padding: 3px 6px;
+    border:0;
+    opacity: 0.4;
+    margin-left: 50px;
+}
+.edit:hover{
+    opacity:1;
+}
+.editInput{
+    display: none;
+    background-color: #fff;
+}
