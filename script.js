@@ -1,12 +1,18 @@
 $(document).ready(function(){
+    elementTesting();
+    resetItemArray();
+});
+
+function elementTesting(){
     $('.item').on('click', justKidding);
     $('#add').on('click', addClicked);
     $('#getData').on('click', getDataClicked);
     $('.done-button').on('click', markDone);
     $('.delete-button').on('click', deleteItem);
     $('.edit').on('click',edit);
-    resetItemArray();
-});
+    $('.saveEdit').on('click',saveEdit);
+}
+
 //Global itemArray used to append items to DOM
 var itemArray = [];
 //Global itemObject used to store item title
@@ -42,9 +48,10 @@ function addItemToDom(itemObj){
     var addDoneBtn = $('<button>').text('Mark as done').addClass('item done-button').on('click', markDone);
     var addDeleteBtn = $('<button>').text('Delete').addClass('delete-button').on('click', deleteItem);
     var addEditBtn = $('<button>').text('Edit').addClass('edit').on('click', edit);
+    var addSaveBtn = $('<button>').text('Save').addClass('saveEdit').on('click', saveEdit);
     var addItemName = $('<span>').text(itemObj.name).addClass('item').on('click', justKidding);
 
-    var addListItem = $('<li>').append(addItemName,addEditInput, addDoneBtn, addDeleteBtn,addEditBtn);
+    var addListItem = $('<li>').append(addItemName,addEditInput, addDoneBtn, addDeleteBtn,addEditBtn, addSaveBtn);
 
     $('.items').append(addListItem);
 }
@@ -73,7 +80,6 @@ function justKidding(){
         $(this).siblings('.done-button').show();
         $(this).siblings('.edit').show();
         $(this).siblings('.delete-button').hide();
-        console.log('xxx');
     }
     else{
         console.log('the item is NOT marked as finished');
@@ -99,7 +105,7 @@ function getDataClicked(){
             console.log("not working!");
         },
         dataType: 'json',
-        method: 'post',
+        method: 'post'
     });
 }
 
@@ -116,7 +122,7 @@ function insert(){
         error: function (response) {
             console.log("insert not working!");
         },
-        dataType: 'text',
+        dataType: 'text'
     })
 }
 
@@ -141,7 +147,7 @@ function deleteFromDB(deleteParam){
         error: function (response) {
             console.log("delete not working!");
         },
-        dataType: 'text',
+        dataType: 'text'
     })
 }
 
@@ -153,4 +159,14 @@ function edit(){
     $(this).siblings('.done-button').hide();
     $(this).siblings('.saveEdit').show();
     $(this).siblings('.editInput').show().val(editInputText);
+}
+
+function saveEdit(){
+    console.log('saveEdit being called');
+    var newInputText = $(this).siblings('.editInput').val();
+    console.log('newInputText: '+ newInputText);
+    $(this).siblings('.editInput').hide();
+    $(this).siblings('span').show().text(newInputText);
+    $(this).siblings('.done-button').show();
+    $(this).hide();
 }

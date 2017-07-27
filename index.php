@@ -29,10 +29,10 @@
         </li> -->
     </ul>
 
-    <form class="item-add" action="add.php" method = "post">
+    <form class="item-add">
         <input type="text" name="name" placeholder="Type a new item here." class="input" autcomplete="off" required>
         <input id="add" type="button" value="Add" class="submit">
-        <input id="getData" type="button" value="Get data " class="submit">
+        <input id="getData" type="button" value="Get Saved data " class="submit">
     </form>
 
 </div>
