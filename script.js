@@ -147,7 +147,9 @@ function deleteFromDB(deleteParam){
 
 function edit(){
     console.log('edit being called');
+    var newInputText = $(this).siblings('span').text();
+    //console.log('newInputText : '+newInputText);
     $(this).siblings('span').hide();
     $(this).siblings('.done-button').hide();
-    $(this).siblings('.editInput').show();
+    $(this).siblings('.editInput').show().val(newInputText);
 }

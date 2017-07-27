@@ -22,6 +22,7 @@
             <button class="item done-button">Mark as done</button>
             <button class="delete-button">Delete</button>
             <button class="edit">Edit</button>
+            <button class="saveEdit">Save</button>
         </li>
         <!-- <li>
             <span class="item done">Learn PHP</span>
