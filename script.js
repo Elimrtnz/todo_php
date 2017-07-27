@@ -62,7 +62,7 @@ function markDone(){
     $(this).siblings('.edit').hide();
     $(this).siblings('span').addClass('done');
     $(this).hide();
-    $(this).next().css('display','inline-block');
+    $(this).siblings('.delete-button').show();
 }
 
 function justKidding(){
@@ -72,7 +72,7 @@ function justKidding(){
         $(this).removeClass("done");
         $(this).siblings('.done-button').show();
         $(this).siblings('.edit').show();
-        $(this).siblings('button.delete-button').hide();
+        $(this).siblings('.delete-button').hide();
         console.log('xxx');
     }
     else{
@@ -147,9 +147,10 @@ function deleteFromDB(deleteParam){
 
 function edit(){
     console.log('edit being called');
-    var newInputText = $(this).siblings('span').text();
+    var editInputText = $(this).siblings('span').text();
     //console.log('newInputText : '+newInputText);
     $(this).siblings('span').hide();
     $(this).siblings('.done-button').hide();
-    $(this).siblings('.editInput').show().val(newInputText);
+    $(this).siblings('.saveEdit').show();
+    $(this).siblings('.editInput').show().val(editInputText);
 }
