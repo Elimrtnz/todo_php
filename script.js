@@ -3,9 +3,10 @@ $(document).ready(function(){
     resetItemArray();
 });
 
+//Hard coded html elements for testing;
 function elementTesting(){
     $('.item').on('click', justKidding);
-    $('#add').on('click', addClicked);
+    $('#add').on('click', addButtonClicked);
     $('#getData').on('click', getDataClicked);
     $('.done-button').on('click', markDone);
     $('.delete-button').on('click', deleteItem);
@@ -20,8 +21,8 @@ var itemObj ={
     name: ''
 }
 
-function addClicked(){
-    //insert();
+function addButtonClicked(){
+    //**************************  insertItem();
     addItem();
     clearForm();
     resetItemArray();
@@ -109,7 +110,7 @@ function getDataClicked(){
     });
 }
 
-function insert(){
+function insertItem(){
     var nameOfItem = $('.input').val();
 
     $.ajax({
@@ -130,7 +131,7 @@ function deleteItem(){
     console.log('deleteItem has been called');
     var deleteSomething = $(this).siblings('span').text();
     //call deleteFromDB here
-    //deleteFromDB(deleteSomething);
+    //*********************************************************** deleteFromDB(deleteSomething);
     $(this).parent().remove();
 }
 
@@ -151,10 +152,12 @@ function deleteFromDB(deleteParam){
     })
 }
 
+var editInputText = null;
 function edit(){
     console.log('edit being called');
-    var editInputText = $(this).siblings('span').text();
-    //console.log('newInputText : '+newInputText);
+    editInputText = $(this).siblings('span').text();
+    console.log('editInputText : '+editInputText);
+    $(this).hide();
     $(this).siblings('span').hide();
     $(this).siblings('.done-button').hide();
     $(this).siblings('.saveEdit').show();
@@ -165,8 +168,30 @@ function saveEdit(){
     console.log('saveEdit being called');
     var newInputText = $(this).siblings('.editInput').val();
     console.log('newInputText: '+ newInputText);
+
+    //**************************************************************************  updateDB(newInputText);
+
     $(this).siblings('.editInput').hide();
     $(this).siblings('span').show().text(newInputText);
     $(this).siblings('.done-button').show();
     $(this).hide();
 }
+
+function updateDB(updateParam){
+    console.log('updateDB being called');
+    var nameOfUpdateItem = updateParam;
+
+    $.ajax({
+        method: 'POST',
+        data: {updateItem:nameOfUpdateItem, oldName:editInputText},
+        url: 'update.php',
+        success: function(result){
+            console.log('update.php is working!');
+        },
+        error: function (response) {
+            console.log("update not working!");
+        },
+        dataType: 'text'
+    })
+}
+
