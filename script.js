@@ -48,7 +48,7 @@ function addItemToDom(itemObj){
     var addEditInput = $('<input>').addClass('editInput');
     var addDoneBtn = $('<button>').text('Mark as done').addClass('item done-button').on('click', markDone);
     var addDeleteBtn = $('<button>').text('Delete').addClass('delete-button').on('click', deleteItem);
-    var addEditBtn = $('<button>').text('Edit').addClass('edit').on('click', edit);
+    var addEditBtn = $('<button>').html('<i class="material-icons pencil">mode_edit</i>').addClass('edit').on('click', edit);
     var addSaveBtn = $('<button>').text('Save').addClass('saveEdit').on('click', saveEdit);
     var addItemName = $('<span>').text(itemObj.name).addClass('item').on('click', justKidding);
 
@@ -174,6 +174,7 @@ function saveEdit(){
     $(this).siblings('.editInput').hide();
     $(this).siblings('span').show().text(newInputText);
     $(this).siblings('.done-button').show();
+    $(this).siblings('.edit').show();
     $(this).hide();
 }
 

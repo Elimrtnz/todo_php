@@ -3,6 +3,7 @@
 <head>
     <meta charset = "UTF-8">
     <title>PHP To Do List</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet">
     <link href ="main.css" rel="stylesheet">
@@ -21,7 +22,7 @@
             <input class="editInput">
             <button class="item done-button">Mark as done</button>
             <button class="delete-button">Delete</button>
-            <button class="edit">Edit</button>
+            <button class="edit"><i class="material-icons pencil">mode_edit</i></button>
             <button class="saveEdit">Save</button>
         </li>
         <!-- <li>

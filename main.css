@@ -120,3 +120,8 @@ span{
 .saveEdit:hover{
     opacity:1;
 }
+
+.pencil{
+    color:red;
+    font-size: 1.5em;
+}
